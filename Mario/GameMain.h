@@ -1,7 +1,7 @@
 #pragma once
 #include "AbstractScene.h"
 #include "Mario.h"
-#include "Map.h"
+
 
 
 class GameMain : public AbstractScene
@@ -9,8 +9,8 @@ class GameMain : public AbstractScene
 private:
 	
 	Mario Mario;				//プレイヤー
-	Map Map;
 	int Haikei;
+	int MapX;
 public:
 	GameMain();
 	//デストラクト

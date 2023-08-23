@@ -9,10 +9,10 @@ private:
 	int Marioimage;
 	float speedinit;	//移動速度最大
 	float Speed;	//移動速度
-
+	float JumpPower;
 	int Width, Height;
 	int x, y;
-
+	float MarioX, MarioY;
 	int JoypadX, JoypadY;	//パッド入力値
 	float PadangL;			//パッド入力角度
 	int TriggerL, TriggerR;	//トリガー入力値
@@ -23,9 +23,11 @@ private:
 	int jump;	//ジャンプ回数
 	bool jumping; //ジャンプ
 	bool TurnFlg;
+	bool MoveFlg;
 
 public:
-
+	bool GetMoveFlg()const {return MoveFlg; }
+	float GetX()const { return x; }
 	void InitPad();
 	Mario();
 	void Update();

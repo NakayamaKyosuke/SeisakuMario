@@ -3,13 +3,16 @@
 #include "common.h"
 #include <math.h>
 
+#define JUMP_POWER 25
+#define GRAVITY 2
+
 Mario::Mario(){
 	Walk = 0;
 	Speed = 0;
 	Move = true;
 
 	TurnFlg = false;
-
+	MoveFlg = false;
 	Width = 32;
 	Height = 32;
 	vy = 0;
@@ -18,8 +21,11 @@ Mario::Mario(){
 	fall = 0;
 	jump = 0;
 	jumping = false;
-	x = (SCREEN_WIDTH - Width) / 2;
-	y = 0;
+	JumpPower = 0;
+	x = SCREEN_WIDTH / 2;
+	y = SCREEN_HEIGHT - 80;
+	MarioX = 0;
+	MarioY = 0;
 	JoypadX = 0;
 	JoypadY = 0;
 	//Marioimage=LoadGraph("image/Mario/mario.png");
@@ -33,12 +39,18 @@ if (Move)
 {
 	//スティック入力時
 	if (JoypadX >= MARGIN && Move) {
+		MoveFlg = TRUE;
 		Speed += 0.5;	//移動量を加算
-		x = x + 3;
+		//x = x + 3;
+		if (x <= 323&& MoveFlg == TRUE)
+		{
+			x = x + 3;
+		}
 		TurnFlg = FALSE;				//向きを変える
 		Walk++;							//歩行アニメーション進行
 	}
 	else if (JoypadX <= -MARGIN && Move) {
+		MoveFlg = TRUE;
 		Speed -= 0.5;	//移動量を減算
 		x = x - 3;
 		TurnFlg = TRUE;				//向きを変える
@@ -47,6 +59,7 @@ if (Move)
 	//非スティック入力時
 	else
 	{
+		MoveFlg = FALSE;
 		//移動速度を0に近づける
 		if (Speed < 0 && 0 < ++Speed) {
 			Speed = 0;
@@ -61,47 +74,33 @@ if (Move)
 }
 
 
-
-//if (jumping == TRUE)
-//{
-//	vy = y;
-//}
-
-
-
-
-if (y <= SCREEN_HEIGHT - 100)
-{
-	y += fall;	//上下移動
-
 	//落下とジャンプ
 	float fallinit = 16;
 	//Aボタン・ジャンプ
 	//&& jumping == TRUE
-	if (PAD_INPUT::OnClick(XINPUT_BUTTON_A))
+	if (PAD_INPUT::OnClick(XINPUT_BUTTON_A)&&jumping==false)
 	{
-		//jumping = FALSE;
-		fall = -fallinit;
+		JumpPower = JUMP_POWER;
+		jumping = true;
 	}
 
-	//落下速度管理
-	if (fall < fallinit)
+	if (jumping)
 	{
-		//落下速度を増やす
-		fall += (fallinit * 2) / 45;
-		if (fall > fallinit)
-		{
-			fall = fallinit;	//落下速度の最大値
-		}
-
+		JumpPower -= GRAVITY;
+		y -= JumpPower;
 	}
-	//y = y + 5;
+	
 
-	/*if (y == SCREEN_HEIGHT - 100)
+	if (y >= SCREEN_HEIGHT - 80)
 	{
-		jumping = TRUE;
-	}*/
-}
+		y= SCREEN_HEIGHT - 80;
+		jumping = false;
+	}
+	else
+	{
+		y += GRAVITY;
+	}
+
 
 
 
@@ -113,6 +112,7 @@ void Mario::Draw()const
 {
 	int fix = 0;
 	DrawRotaGraph(x,y, 1.0f, 0, MarioImage[Walk/3], TRUE, TurnFlg);
+	DrawFormatString(0, 0, 0x000000, "%d",x);
 }
 
 void Mario::InitPad()

@@ -13,6 +13,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     
     SetGraphMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32);
 
+    SetWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+
     ChangeWindowMode(TRUE);		//ウィンドウモードで起動
     SetWindowIconID(01);
 

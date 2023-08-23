@@ -143,7 +143,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="KoopaTroopa.h" />
-    <ClInclude Include="Map.h" />
+    <ClInclude Include="MapChip.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="PadInput.h" />
     <ClInclude Include="SceneManager.h" />
@@ -158,7 +158,7 @@
     <ClCompile Include="KayManager.cpp" />
     <ClCompile Include="KoopaTroopa.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MapChip.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="PadInput.cpp" />
     <ClCompile Include="SceneManager.cpp" />
