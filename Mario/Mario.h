@@ -1,5 +1,6 @@
 #pragma once
-
+#define SIZE_W 32
+#define SIZE_H 32
 class Mario
 {
 private:
@@ -28,6 +29,7 @@ private:
 public:
 	bool GetMoveFlg()const {return MoveFlg; }
 	float GetX()const { return x; }
+	float GetY()const { return y; }
 	void InitPad();
 	Mario();
 	void Update();
