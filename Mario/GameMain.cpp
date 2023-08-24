@@ -8,7 +8,7 @@
 #include"Item.h"
 #include"common.h"
 #include "Mario.h"
-
+#include "UI.h"
 //#define DEBUG
 
 GameMain::GameMain()
@@ -19,7 +19,7 @@ GameMain::GameMain()
 
 AbstractScene* GameMain::Update()
 {
-
+	Ui.Update();
 	Mario.Update();
 	if (Mario.GetX() > 323 && Mario.GetMoveFlg() == TRUE)
 	{
@@ -34,4 +34,5 @@ void GameMain::Draw()const
 	//DrawGraph(MAP_WIDHT, SCREEN_HEIGHT, Haikei, FALSE);
 	DrawRotaGraph(MapX, SCREEN_HEIGHT, 2.0, 0.0, Haikei, TRUE, FALSE);
 	Mario.Draw();
+	Ui.Draw();
 }

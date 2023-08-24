@@ -154,6 +154,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="Zanki.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common.h" />
@@ -170,6 +171,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="Zanki.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

@@ -1,6 +1,7 @@
 #pragma once
 #include "AbstractScene.h"
 #include "Mario.h"
+#include "UI.h"
 
 
 
@@ -8,9 +9,11 @@ class GameMain : public AbstractScene
 {
 private:
 	
-	Mario Mario;				//プレイヤー
+	Mario Mario; //プレイヤー
+	UI Ui;
 	int Haikei;
 	int MapX;
+
 public:
 	GameMain();
 	//デストラクト
