@@ -43,10 +43,12 @@ void UI::Update()
 	if (Time == 10)
 	{
 		Time2++;
+		Time = 0;
 	}
 	if (Time2 == 10)
 	{
 		Time3++;
+		Time2 = 0;
 	}
 	
 	if (Time == 10)

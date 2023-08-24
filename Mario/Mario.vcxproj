@@ -141,12 +141,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AbstractScene.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Fps.h" />
     <ClInclude Include="GameMain.h" />
     <ClInclude Include="Goomba.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="KeyManager.h" />
-    <ClInclude Include="KoopaTroopa.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="MapChip.h" />
     <ClInclude Include="Mario.h" />
@@ -158,11 +158,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common.h" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="KayManager.cpp" />
-    <ClCompile Include="KoopaTroopa.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="MapChip.cpp" />

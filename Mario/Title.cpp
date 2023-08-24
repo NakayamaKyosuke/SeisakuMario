@@ -53,7 +53,7 @@ AbstractScene* Title::Update()
 
 	if (PAD_INPUT::OnPressed(XINPUT_BUTTON_B) && Interval >= 30) {
 		if (TITLE_MENU::START == Menu_Number) return new MarioZanki();
-		if (TITLE_MENU::END == Menu_Number)return new MarioZanki();
+		if (TITLE_MENU::END == Menu_Number)return new GameMain();
 		Interval = 0;
 	}
 

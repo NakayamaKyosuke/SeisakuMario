@@ -13,7 +13,6 @@ private:
 	int MarioImage[4];
 
 	int ICount;
-	int CCount;
 
 public:
 	MarioZanki();

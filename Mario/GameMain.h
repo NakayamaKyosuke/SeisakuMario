@@ -2,6 +2,7 @@
 #include "AbstractScene.h"
 #include "Mario.h"
 #include "UI.h"
+#include "Enemy.h"
 
 
 
@@ -11,9 +12,10 @@ private:
 	
 	Mario Mario; //プレイヤー
 	UI Ui;
+	Enemy Enemy;
 	int Haikei;
 	int MapX;
-
+	int Count;
 public:
 	GameMain();
 	//デストラクト
