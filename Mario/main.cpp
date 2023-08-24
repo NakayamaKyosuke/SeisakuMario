@@ -4,6 +4,7 @@
 #include "PadInput.h"
 #include "SceneManager.h"
 #include "GameMain.h"
+#include "Title.h"
 
 #define FLAME 60
 
@@ -26,7 +27,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     Fps fps;
 
-    SceneManager sceneMng((AbstractScene*)new GameMain());
+    SceneManager sceneMng((AbstractScene*)new Title());
     //ÉQÅ[ÉÄÉãÅ[Év
     while (ProcessMessage() == 0 && sceneMng.Update() != nullptr)
     {
