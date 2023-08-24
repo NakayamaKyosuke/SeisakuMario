@@ -8,57 +8,45 @@
 #include"Item.h"
 #include"common.h"
 #include "Mario.h"
-#include "MapChip.h"
-
+#include "UI.h"
+#include "Title.h"
+#include "Enemy.h"
 //#define DEBUG
 
 GameMain::GameMain()
 {
+	Count = 0;
 	MapX = 3376;
-
-
 	Haikei = LoadGraph("image/Stage/MarioWorld.png");
-	LoadDivGraph("image/MapBlocks.png", 23, 23, 1, 32, 32, MapBlock_Image);
 }
 
 AbstractScene* GameMain::Update()
 {
-
+	Count++;
+	Ui.Update();
+	Enemy.Update();
 	Mario.Update();
 	if (Mario.GetX() > 323 && Mario.GetMoveFlg() == TRUE)
 	{
 
 		MapX = MapX - 3;
 	}
-	return this;
-}
-
-bool GameMain::HitCheck(int i, int j)
-{
-	//Ž©•ª‚Ì“–‚½‚è”»’è‚Ì‚â‚Â
-	int left, top, right, bottom;
-	int retval = 0;
-	left = CELL_SIZE_X * j;
-	top = CELL_SIZE_Y * i;
-	right = left + CELL_SIZE_X;
-	bottom = top + CELL_SIZE_Y;
-	int ax1 = Mario.GetX() - (SIZE_W / 2);
-	int ay1 = Mario.GetY() - (SIZE_H / 2);
-	int ax2 = Mario.GetX() + (SIZE_W);
-	int ay2 = Mario.GetY() + (SIZE_H);
-	if ((ax1 < right) && (ax2 > left) && (ay1 < bottom) && (ay2 > top)) {
-		retval = TRUE;
+	if (Mario.GetX() > 323 && Mario.GetMoveFlg() == TRUE&& Mario.GetDA() == TRUE)
+	{
+		MapX = MapX - 4;
 	}
-
-	return retval;
+	return this;
+	if (Count >= 24000)
+	{
+		return new Title();
+	}
 }
 
 void GameMain::Draw()const
 {
 	//DrawGraph(MAP_WIDHT, SCREEN_HEIGHT, Haikei, FALSE);
-
-	
-
-	//DrawRotaGraph(MapX, SCREEN_HEIGHT, 2.0, 0.0, Haikei, TRUE, FALSE);
+	DrawRotaGraph(MapX, SCREEN_HEIGHT, 2.0, 0.0, Haikei, TRUE, FALSE);
 	Mario.Draw();
+	Enemy.Draw();
+	Ui.Draw();
 }
