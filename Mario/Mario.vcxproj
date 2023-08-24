@@ -147,7 +147,6 @@
     <ClInclude Include="Goomba.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="KeyManager.h" />
-    <ClInclude Include="map.h" />
     <ClInclude Include="MapChip.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="MarioZanki.h" />
@@ -164,7 +163,6 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="KayManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="map.cpp" />
     <ClCompile Include="MapChip.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="MarioZanki.cpp" />
