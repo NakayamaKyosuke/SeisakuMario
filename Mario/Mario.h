@@ -24,9 +24,11 @@ private:
 	bool jumping; //ƒWƒƒƒ“ƒv
 	bool TurnFlg;
 	bool MoveFlg;
+	bool DAFlag;
 
 public:
 	bool GetMoveFlg()const {return MoveFlg; }
+	bool GetDA()const { return DAFlag; }
 	float GetX()const { return x; }
 	void InitPad();
 	Mario();

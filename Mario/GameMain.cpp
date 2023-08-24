@@ -26,6 +26,10 @@ AbstractScene* GameMain::Update()
 
 		MapX = MapX - 3;
 	}
+	if (Mario.GetX() > 323 && Mario.GetMoveFlg() == TRUE&& Mario.GetDA() == TRUE)
+	{
+		MapX = MapX - 4;
+	}
 	return this;
 }
 

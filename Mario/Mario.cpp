@@ -11,6 +11,7 @@ Mario::Mario(){
 	Speed = 0;
 	Move = true;
 
+	DAFlag = false;
 	TurnFlg = false;
 	MoveFlg = false;
 	Width = 32;
@@ -38,7 +39,8 @@ InitPad();
 if (Move)
 {
 	//スティック入力時
-	if (JoypadX >= MARGIN && Move) {
+	if (JoypadX >= MARGIN && Move&& !PAD_INPUT::OnPressed(XINPUT_BUTTON_A)) {
+		DAFlag = FALSE;
 		MoveFlg = TRUE;
 		Speed += 0.5;	//移動量を加算
 		//x = x + 3;
@@ -49,12 +51,34 @@ if (Move)
 		TurnFlg = FALSE;				//向きを変える
 		Walk++;							//歩行アニメーション進行
 	}
-	else if (JoypadX <= -MARGIN && Move) {
+	else if (JoypadX <= -MARGIN && Move&& !PAD_INPUT::OnPressed(XINPUT_BUTTON_A)) {
 		MoveFlg = TRUE;
 		Speed -= 0.5;	//移動量を減算
 		x = x - 3;
 		TurnFlg = TRUE;				//向きを変える
 	Walk++;							//歩行アニメーション進行
+	}
+	//走る
+	else if (JoypadX >= MARGIN && Move&& PAD_INPUT::OnPressed(XINPUT_BUTTON_A)) {
+		MoveFlg = TRUE;
+		DAFlag = TRUE;
+		Speed += 1.5;	//移動量を加算
+		//x = x + 3;
+		if (x <= 323 && MoveFlg == TRUE)
+		{
+			x = x + 6;
+		}
+		TurnFlg = FALSE;				//向きを変える
+		Walk++;							//歩行アニメーション進行
+		
+	}
+	else if (JoypadX <= -MARGIN && Move&& PAD_INPUT::OnPressed(XINPUT_BUTTON_A)) {
+		MoveFlg = TRUE;
+		Speed -= 1.5;	//移動量を減算
+		x = x - 3;
+		TurnFlg = TRUE;				//向きを変える
+		Walk++;							//歩行アニメーション進行
+		
 	}
 	//非スティック入力時
 	else
@@ -78,7 +102,7 @@ if (Move)
 	float fallinit = 16;
 	//Aボタン・ジャンプ
 	//&& jumping == TRUE
-	if (PAD_INPUT::OnClick(XINPUT_BUTTON_A)&&jumping==false)
+	if (PAD_INPUT::OnClick(XINPUT_BUTTON_B)&&jumping==false)
 	{
 		JumpPower = JUMP_POWER;
 		jumping = true;
@@ -101,7 +125,10 @@ if (Move)
 		y += GRAVITY;
 	}
 
-
+	if (x  <= 20)
+	{
+		x = 20;
+	}
 
 
 if (12 <= Walk)Walk = 0;
