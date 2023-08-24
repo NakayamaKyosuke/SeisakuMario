@@ -1,7 +1,7 @@
 #include"Title.h"
 #include"GameMain.h"
 #include"AbstractScene.h"
-#include "Zanki.h"
+#include "MarioZanki.h"
 
 Title::Title()
 {
@@ -52,8 +52,8 @@ AbstractScene* Title::Update()
 
 
 	if (PAD_INPUT::OnPressed(XINPUT_BUTTON_B) && Interval >= 30) {
-		if (TITLE_MENU::START == Menu_Number) return new GameMain();
-		if (TITLE_MENU::END == Menu_Number)return new Zanki();
+		if (TITLE_MENU::START == Menu_Number) return new MarioZanki();
+		if (TITLE_MENU::END == Menu_Number)return new MarioZanki();
 		Interval = 0;
 	}
 

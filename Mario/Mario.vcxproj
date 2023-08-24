@@ -150,11 +150,11 @@
     <ClInclude Include="map.h" />
     <ClInclude Include="MapChip.h" />
     <ClInclude Include="Mario.h" />
+    <ClInclude Include="MarioZanki.h" />
     <ClInclude Include="PadInput.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="UI.h" />
-    <ClInclude Include="Zanki.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common.h" />
@@ -167,11 +167,11 @@
     <ClCompile Include="map.cpp" />
     <ClCompile Include="MapChip.cpp" />
     <ClCompile Include="Mario.cpp" />
+    <ClCompile Include="MarioZanki.cpp" />
     <ClCompile Include="PadInput.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="UI.cpp" />
-    <ClCompile Include="Zanki.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

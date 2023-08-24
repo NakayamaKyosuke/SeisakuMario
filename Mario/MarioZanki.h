@@ -1,6 +1,6 @@
 #pragma once
 #include "AbstractScene.h"
-class Zanki :public AbstractScene
+class MarioZanki :public AbstractScene
 {
 private:
 	int MarioName_Image;
@@ -12,14 +12,15 @@ private:
 	int Select2_Image;
 	int MarioImage[4];
 
-	int Count;
+	int ICount;
+	int CCount;
 
 public:
-	Zanki();
-	~Zanki() {};
-	virtual AbstractScene* Update()override;
+	MarioZanki();
+	~MarioZanki() {};
+	AbstractScene* Update()override;
 
 
-	virtual void Draw()const override;
+	void Draw()const override;
 };
 
